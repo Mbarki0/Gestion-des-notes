@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,900&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+header
+{
+    height: 80px;
+    width: 100%;
+    background-color: #166dc5;
+}
+header + p
+{   
+    margin-left: 0%;
+    text-align: left;
+    padding-left: 10px;
+    border-left:solid 6px #166dc5;
+}
+fieldset
+{
+    margin:5% 2% 0% 2% ;
+    width: 96%;
+    border-radius: 20px;
+    height: 300px;
+    
+}
+header input , header a input
+{
+    background-color: #1c4f7f;
+    font-size: 15px;
+    float :left ;
+    padding: 15px;
+    margin-left: 10px;
+    margin-top:10px;
+    text-align: center;
+    border: none;
+    border-radius: 50px;
+    color: white;
+}
+header input:hover 
+ {
+     background-color:aliceblue ;
+     color :#07233d;
+ }
+ fieldset legend   {
+    padding: 20px;
+    margin-left : 20px;
+    padding :0 10PX;
+    text-align: center;
+}
+fieldset img
+{
+    height: 25px;
+    width: auto;
+}
+#deconnection
+{
+    position:absolute;
+    RIGHT: 10PX;
+}
+#reception
+{
+    margin-left :10px;
+    position: absolute;
+}
+#deconnection:hover
+{
+    background-color: rgb(155, 0, 0);
+    color: aliceblue;
+}
+#Retour
+{
+    position: absolute;
+    right: 90px;
+    margin-top: 50px;
+    background-color: aliceblue;
+    font-size: 15px;
+    padding: 5PX 20px;
+    text-align: center;
+    border: none;
+    border-radius: 100px;
+}
+#Retour:hover
+{
+    background-color: black;
+    color: aliceblue;
+}
+.a
+{
+    padding: 40PX;
+    margin: 12px 70px;
+    height: 30%;
+    width: 40%;
+    float: left;
+    background-color :#f8fafc;
+    border-radius: 10PX;
+    text-align: center;
+    font-size: 15px;
+    font-weight:500;
+    text-decoration: none;
+    color:rgb(46, 56, 201);
+}
+.a:hover
+{
+    transform: scale(1,1);
+    background-color: #e1e4e6;
+}
+p{
+    margin: 80PX 0 0 43%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#logo
+{
+    height: 60px;
+    width: auto;
+    margin-top: 0 0 0 0;
+    left: 0;
+    position: absolute;
+}
+#prof
+{
+    margin-left: 40%;
+}
+header img
+{
+    height: 80PX;
+    align-items: center;
+    left: 0%;
+    LEFT: 10PX;
+    position: absolute;
+}
+table
+{
+  background: #f5f5f5;
+	border-collapse: separate;
+	box-shadow: inset 0 1px 0 #fff;
+	font-size: 12px;
+	line-height: 24px;
+	margin: 30px auto;
+	text-align: left;
+	width: 1500px;
+  border-radius: 10px 10px 0 0 ;
+  overflow: hidden;
+  
+}	
+
+th {
+	background-color: #166dc5;
+	border-left: 1px solid #555;
+	border-right: 1px solid #777;
+	border-top: 1px solid #555;
+	border-bottom: 1px solid #333;
+	box-shadow: inset 0 1px 0 #999;
+	color: #fff;
+  font-weight: bold;
+	padding: 10px 15px;
+	position: relative;
+	text-shadow: 0 1px 0 #000;	
+  PADDING:15PX;
+  
+}
+td {
+	border: 1px solid #fff;
+	padding: 10px 15px;
+	position: relative;
+}
+td input 
+{
+    border: none;
+    background-color: #f5f5f5;
+    width: 100%;
+}
+
+
+#download {
+    background: #ffffff;
+    border: NONE;
+    border-radius: 10Px;
+    display: inline-block;
+    height: 100px;
+    line-height: 100px;
+    margin: 5px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 100px;
+}
+
+#download span {
+    background: #0a921a;
+    border-radius: 4px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: normal;
+    padding: 2px 10px;
+    position: relative;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+
+
+#download:before,
+#download:after {
+    background: #ffffff;
+    border: solid 3px #9fb4cc;
+    border-radius: 4px;
+    content: '';
+    display: block;
+    height: 35px;
+    left: 50%;
+    margin: -17px 0 0 -12px;
+    position: absolute;
+    top: 50%;
+    /*transform:translate(-50%,-50%);*/
+    
+    width: 25px;
+}
+
+#download:hover:before,
+#download:hover:after {
+    background: #e2e8f0;
+}
+/*a:before{transform:translate(-30%,-60%);}*/
+
+#download:before {
+    margin: -23px 0 0 -5px;
+}
+
+#download:hover {
+    background: #e2e8f0;
+    border-color: #e2e7ec;
+}
+
+#download:active {
+    background: #dae0e8;
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, .25);
+}
+
+#download span:first-child {
+    display: none;
+}
+
+#download:hover span:first-child {
+    display: inline-block;
+}
+
+#download:hover span:last-child {
+    display: none;
+}
+

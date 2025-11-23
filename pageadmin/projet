@@ -1,0 +1,1025 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1
+-- Généré le : jeu. 31 mars 2022 à 15:01
+-- Version du serveur : 10.4.22-MariaDB
+-- Version de PHP : 8.1.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `projet`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id_admin` int(4) NOT NULL,
+  `Nom` text NOT NULL,
+  `Prenom` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `Nom`, `Prenom`) VALUES
+(1, 'Mohammed', 'Inconnue');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `chef_filiere`
+--
+
+CREATE TABLE `chef_filiere` (
+  `id_chef` int(11) NOT NULL,
+  `nom` text NOT NULL,
+  `prenom` text NOT NULL,
+  `id_filiere` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `chef_filiere`
+--
+
+INSERT INTO `chef_filiere` (`id_chef`, `nom`, `prenom`, `id_filiere`) VALUES
+(0, 'TAHRICHI', 'Mohamed', 2),
+(1, 'SERGHINI', 'Abdelhafid', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `chef_module`
+--
+
+CREATE TABLE `chef_module` (
+  `id_chef_module` int(11) NOT NULL,
+  `nom` text NOT NULL,
+  `prenom` text NOT NULL,
+  `id_ens` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `chef_module`
+--
+
+INSERT INTO `chef_module` (`id_chef_module`, `nom`, `prenom`, `id_ens`) VALUES
+(0, 'NASRI', 'M\'barek ', 0),
+(1, 'M\'BARKI', 'Mohammed ', 1),
+(2, 'BERRAHOU', 'OMAR', 2),
+(3, 'SERGHINI', 'Abdelhafid', 3),
+(6, 'BADAOUI', 'Mohammed', 6),
+(7, 'JENDER', 'Hafid', 7),
+(8, 'ABBADI', 'Abdelaziz ', 8),
+(9, 'ADLI', 'Mohammed ', 9),
+(10, 'KORIKACHE', 'Reda ', 10),
+(11, 'ELBEQQAL', 'Mohamed', 11),
+(12, 'DEHMANI', 'Soufiane', 12),
+(13, 'MEDBOUHI', 'Abderrahim', 13),
+(14, 'MOUSSAOUI', 'Mimoun', 14),
+(15, 'BRAHIM', 'Sarah', 15),
+(16, 'ZROURI', 'Hafida', 16);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `compte`
+--
+
+CREATE TABLE `compte` (
+  `id_compte` int(100) NOT NULL,
+  `username` varchar(10) NOT NULL,
+  `mtp` text NOT NULL,
+  `typeCompte` int(1) NOT NULL DEFAULT 0 COMMENT '0:prof;1:chefFilière;2:admin\r\n',
+  `id_ens` int(11) DEFAULT NULL,
+  `id_chef` int(11) DEFAULT NULL,
+  `id_admin` int(4) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `compte`
+--
+
+INSERT INTO `compte` (`id_compte`, `username`, `mtp`, `typeCompte`, `id_ens`, `id_chef`, `id_admin`) VALUES
+(1, 'MOHAMMED', 'moha12345', 1, NULL, 1, NULL),
+(2, 'Abdelhafid', 'ESTO@2022', 0, 3, NULL, NULL),
+(3, 'admin', 'admin', 2, NULL, NULL, 1),
+(4, 'momo', 'momo', 1, NULL, 0, NULL),
+(5, 'mohammed', 'mohammed', 0, 0, NULL, NULL),
+(6, 'mimounMous', 'moussaouiEsto2022', 0, 14, NULL, NULL),
+(7, 'abdelaziz', 'ESTOmath2022', 0, 8, NULL, NULL),
+(8, 'mohamed_el', 'mohamed_elbeqqal123', 0, 11, NULL, NULL),
+(9, 'sarah.BRAH', 'sarahbrahim123', 0, 15, NULL, NULL),
+(10, 'Reda2022', 'RedaKorikach.1', 0, 10, NULL, NULL),
+(11, 'Oumai-mo22', 'AitmoussaOum1', 0, 17, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `enseignant`
+--
+
+CREATE TABLE `enseignant` (
+  `id_ens` int(11) NOT NULL,
+  `nom` text NOT NULL,
+  `prenom` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `enseignant`
+--
+
+INSERT INTO `enseignant` (`id_ens`, `nom`, `prenom`) VALUES
+(0, 'NASRI', 'M\'barek '),
+(1, 'M\'BARKI', 'Mohammed '),
+(2, 'BERRAHOU', 'OMAR'),
+(3, 'SERGHINI', 'Abdelhafid'),
+(6, 'BADAOUI', 'Mohammed'),
+(7, 'JENDER', 'Hafid'),
+(8, 'ABBADI', 'Abdelaziz '),
+(9, 'ADLI', 'Mohammed '),
+(10, 'KORIKACHE', 'Reda '),
+(11, 'ELBEQQAL', 'Mohamed'),
+(12, 'DEHMANI', 'Soufiane'),
+(13, 'MEDBOUHI', 'Abderrahim'),
+(14, 'MOUSSAOUI', 'Mimoun'),
+(15, 'BRAHIM', 'Sarah'),
+(16, 'ZROURI', 'Hafida'),
+(17, 'AIT-MOUSSA', 'Oumaima'),
+(18, 'LAABID', 'Jihad');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `etudiant`
+--
+
+CREATE TABLE `etudiant` (
+  `Apogée` int(8) NOT NULL,
+  `Nom` text NOT NULL,
+  `Prenom` text NOT NULL,
+  `id_filiere` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `etudiant`
+--
+
+INSERT INTO `etudiant` (`Apogée`, `Nom`, `Prenom`, `id_filiere`) VALUES
+(123456, 'M\'BARKI', 'Mohammed', 1),
+(123459, 'BOUTAHAR', 'Mohammed', 4),
+(19836538, 'Hakkou', 'Yassir', 1),
+(22542252, 'BERRAHOU', 'Omar', 1),
+(45678123, 'LOUARDI', 'Dounia', 4),
+(654765347, 'NAJI', 'brahim', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `filiere`
+--
+
+CREATE TABLE `filiere` (
+  `id_filiere` int(11) NOT NULL,
+  `nom-filiere` text NOT NULL,
+  `departement` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `filiere`
+--
+
+INSERT INTO `filiere` (`id_filiere`, `nom-filiere`, `departement`) VALUES
+(1, 'DAI', 'Génie informatique'),
+(2, 'ASR', 'Génie informatique'),
+(3, 'GIE', 'Génie informatique'),
+(4, 'EII', 'Génie appliqué'),
+(5, 'MCT', 'Génie appliqué');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `matiere`
+--
+
+CREATE TABLE `matiere` (
+  `id_matiere` int(11) NOT NULL,
+  `nom_matiere` text NOT NULL,
+  `id_module` int(11) NOT NULL,
+  `id_ens` int(11) NOT NULL,
+  `lisible_prof` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `matiere`
+--
+
+INSERT INTO `matiere` (`id_matiere`, `nom_matiere`, `id_module`, `id_ens`, `lisible_prof`) VALUES
+(1, 'Tec', 13, 15, 1),
+(2, 'Anglais', 13, 9, 1),
+(3, 'Gestion des entreprises', 13, 17, 1),
+(4, 'Tec', 4, 15, 0),
+(5, 'Anglais ', 4, 9, 0),
+(6, 'Droit', 4, 18, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `module`
+--
+
+CREATE TABLE `module` (
+  `id_module` int(11) NOT NULL,
+  `nom_module` text NOT NULL,
+  `Semester` text NOT NULL,
+  `id_chef_module` int(11) NOT NULL,
+  `lisible_prof` tinyint(1) NOT NULL DEFAULT 0,
+  `id_ens` int(11) NOT NULL,
+  `delais` date DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `module`
+--
+
+INSERT INTO `module` (`id_module`, `nom_module`, `Semester`, `id_chef_module`, `lisible_prof`, `id_ens`, `delais`) VALUES
+(1, 'Algorithmique et Language C', '1', 0, 0, 0, '2022-03-28'),
+(2, 'Architecture des ordinateurs', '1', 7, 0, 7, '2022-03-28'),
+(3, 'Mathématiques : Maths discrètes et algèbre linéaire', '1', 8, 0, 8, '2022-03-28'),
+(4, 'Langues et Techniques d’expression et de communication en informatique', '1', 9, 1, 9, '2022-04-07'),
+(5, 'Structures de données en C++', '2', 3, 1, 3, '2022-04-10'),
+(6, 'Systèmes d’information et bases de données', '2', 10, 1, 10, '2022-04-21'),
+(7, 'Système d’exploitation Linux', '2', 11, 0, 11, '2022-03-28'),
+(8, 'Réseaux informatiques et sécurité', '2', 12, 0, 12, '2022-03-28'),
+(9, 'Ingénierie logicielle et .NET', '3', 11, 0, 11, '2022-03-28'),
+(10, 'Programmation en Java et J2EE', '3', 13, 0, 13, '2022-03-28'),
+(11, 'Mathématiques : modélisation math. Probabilité et Stat, Recherche opérationnelle', '3', 14, 0, 14, '2022-03-28'),
+(12, 'Bases de données avancées', '3', 10, 1, 10, '2022-03-30'),
+(13, 'Gestion et Ateliers de création d’entreprise (gestion de projets et développement de produits)', '4', 15, 1, 15, '2022-04-10'),
+(14, 'Développement Web et XML', '4', 16, 0, 16, '2022-03-28'),
+(15, 'Projet de Fin d’Etudes', '4', 3, 0, 3, '2022-03-28'),
+(16, 'Stage', '4', 3, 1, 3, '2022-03-28');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `note`
+--
+
+CREATE TABLE `note` (
+  `id_note` int(11) NOT NULL,
+  `note` int(11) NOT NULL,
+  `Absence` tinyint(1) NOT NULL,
+  `id_module` int(11) DEFAULT NULL,
+  `Apogée` int(11) NOT NULL,
+  `id_matiere` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `note_en_attent`
+--
+
+CREATE TABLE `note_en_attent` (
+  `id_note` int(11) NOT NULL,
+  `note` int(11) NOT NULL,
+  `Absence` tinyint(1) NOT NULL,
+  `id_module` int(11) DEFAULT NULL,
+  `Apogée` int(11) NOT NULL,
+  `id_matiere` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `note_en_attent`
+--
+
+INSERT INTO `note_en_attent` (`id_note`, `note`, `Absence`, `id_module`, `Apogée`, `id_matiere`) VALUES
+(17, 14, 0, 5, 123456, NULL),
+(18, 20, 0, 5, 19836538, NULL),
+(19, 16, 0, 5, 22542252, NULL),
+(20, 19, 0, 5, 654765347, NULL),
+(21, 19, 0, 5, 654765347, NULL),
+(22, 19, 0, 5, 123456, NULL),
+(23, 12, 0, 5, 19836538, NULL),
+(24, 19, 0, 5, 22542252, NULL),
+(25, 12, 0, 5, 654765347, NULL),
+(26, 12, 0, 5, 654765347, NULL),
+(27, 0, 0, 5, 0, NULL),
+(28, 0, 0, 5, 0, NULL),
+(29, 0, 0, 5, 0, NULL),
+(30, 0, 0, 5, 0, NULL),
+(31, 0, 0, 5, 0, NULL),
+(32, 0, 0, 5, 0, NULL),
+(33, 0, 0, 5, 0, NULL),
+(34, 0, 0, 5, 0, NULL),
+(35, 0, 0, 5, 0, NULL),
+(36, 0, 0, 5, 0, NULL),
+(37, 0, 0, 16, 0, NULL),
+(38, 0, 0, 16, 0, NULL),
+(39, 0, 0, 16, 0, NULL),
+(40, 0, 0, 16, 0, NULL),
+(41, 0, 0, 16, 0, NULL),
+(42, 0, 0, 5, 0, NULL),
+(43, 0, 0, 5, 0, NULL),
+(44, 0, 0, 5, 0, NULL),
+(45, 0, 0, 5, 0, NULL),
+(46, 0, 0, 5, 0, NULL),
+(47, 0, 0, 16, 0, NULL),
+(48, 0, 0, 16, 0, NULL),
+(49, 0, 0, 16, 0, NULL),
+(50, 0, 0, 16, 0, NULL),
+(51, 0, 0, 16, 0, NULL),
+(52, 0, 0, 16, 0, NULL),
+(53, 0, 0, 16, 0, NULL),
+(54, 0, 0, 16, 0, NULL),
+(55, 0, 0, 16, 0, NULL),
+(56, 0, 0, 16, 0, NULL),
+(57, 0, 0, 5, 0, NULL),
+(58, 0, 0, 5, 0, NULL),
+(59, 0, 0, 5, 0, NULL),
+(60, 0, 0, 5, 0, NULL),
+(61, 0, 0, 5, 0, NULL),
+(62, 0, 0, 16, 0, NULL),
+(63, 0, 0, 16, 0, NULL),
+(64, 0, 0, 16, 0, NULL),
+(65, 0, 0, 16, 0, NULL),
+(66, 0, 0, 16, 0, NULL),
+(67, 0, 0, 5, 0, NULL),
+(68, 0, 0, 5, 0, NULL),
+(69, 0, 0, 5, 0, NULL),
+(70, 0, 0, 5, 0, NULL),
+(71, 0, 0, 5, 0, NULL),
+(72, 0, 0, 16, 0, NULL),
+(73, 0, 0, 16, 0, NULL),
+(74, 0, 0, 16, 0, NULL),
+(75, 0, 0, 16, 0, NULL),
+(76, 0, 0, 16, 0, NULL),
+(77, 0, 0, 16, 0, NULL),
+(78, 0, 0, 16, 0, NULL),
+(79, 0, 0, 16, 0, NULL),
+(80, 0, 0, 16, 0, NULL),
+(81, 0, 0, 16, 0, NULL),
+(82, 0, 0, 16, 0, NULL),
+(83, 0, 0, 16, 0, NULL),
+(84, 0, 0, 16, 0, NULL),
+(85, 0, 0, 16, 0, NULL),
+(86, 0, 0, 16, 0, NULL),
+(87, 0, 0, 5, 0, NULL),
+(88, 0, 0, 5, 0, NULL),
+(89, 0, 0, 5, 0, NULL),
+(90, 0, 0, 5, 0, NULL),
+(91, 0, 0, 5, 0, NULL),
+(92, 0, 0, 5, 0, NULL),
+(93, 0, 0, 5, 0, NULL),
+(94, 0, 0, 5, 0, NULL),
+(95, 0, 0, 5, 0, NULL),
+(96, 0, 0, 5, 0, NULL),
+(97, 0, 0, 5, 0, NULL),
+(98, 0, 0, 5, 0, NULL),
+(99, 0, 0, 5, 0, NULL),
+(100, 0, 0, 5, 0, NULL),
+(101, 0, 0, 5, 0, NULL),
+(102, 0, 0, 16, 0, NULL),
+(103, 0, 0, 16, 0, NULL),
+(104, 0, 0, 16, 0, NULL),
+(105, 0, 0, 16, 0, NULL),
+(106, 0, 0, 16, 0, NULL),
+(107, 0, 0, 5, 0, NULL),
+(108, 0, 0, 5, 0, NULL),
+(109, 0, 0, 5, 0, NULL),
+(110, 0, 0, 5, 0, NULL),
+(111, 0, 0, 5, 0, NULL),
+(112, 0, 0, 5, 0, NULL),
+(113, 0, 0, 5, 0, NULL),
+(114, 0, 0, 5, 0, NULL),
+(115, 0, 0, 5, 0, NULL),
+(116, 0, 0, 5, 0, NULL),
+(117, 0, 0, 5, 0, NULL),
+(118, 0, 0, 5, 0, NULL),
+(119, 0, 0, 5, 0, NULL),
+(120, 0, 0, 5, 0, NULL),
+(121, 0, 0, 5, 0, NULL),
+(122, 0, 0, 13, 0, NULL),
+(123, 0, 0, 13, 0, NULL),
+(124, 0, 0, 13, 0, NULL),
+(125, 0, 0, 13, 0, NULL),
+(126, 0, 0, 13, 0, NULL),
+(127, 0, 0, 13, 0, NULL),
+(128, 0, 0, 13, 0, NULL),
+(129, 0, 0, 13, 0, NULL),
+(130, 0, 0, 13, 0, NULL),
+(131, 0, 0, 13, 0, NULL),
+(132, 0, 0, 13, 0, NULL),
+(133, 0, 0, 13, 0, NULL),
+(134, 0, 0, 13, 0, NULL),
+(135, 0, 0, 13, 0, NULL),
+(136, 0, 0, 13, 0, NULL),
+(137, 0, 0, 13, 0, NULL),
+(138, 0, 0, 13, 0, NULL),
+(139, 0, 0, 13, 0, NULL),
+(140, 0, 0, 13, 0, NULL),
+(141, 0, 0, 13, 0, NULL),
+(142, 0, 0, 13, 0, NULL),
+(143, 0, 0, 13, 0, NULL),
+(144, 0, 0, 13, 0, NULL),
+(145, 0, 0, 13, 0, NULL),
+(146, 0, 0, 13, 0, NULL),
+(147, 0, 0, 13, 0, NULL),
+(148, 0, 0, 13, 0, NULL),
+(149, 0, 0, 13, 0, NULL),
+(150, 0, 0, 13, 0, NULL),
+(151, 0, 0, 13, 0, NULL),
+(152, 0, 0, 13, 0, NULL),
+(153, 0, 0, 13, 0, NULL),
+(154, 0, 0, 13, 0, NULL),
+(155, 0, 0, 13, 0, NULL),
+(156, 0, 0, 13, 0, NULL),
+(157, 0, 0, 13, 0, NULL),
+(158, 0, 0, 13, 0, NULL),
+(159, 0, 0, 13, 0, NULL),
+(160, 0, 0, 13, 0, NULL),
+(161, 0, 0, 13, 0, NULL),
+(162, 0, 0, 13, 0, NULL),
+(163, 0, 0, 13, 0, NULL),
+(164, 0, 0, 13, 0, NULL),
+(165, 0, 0, 13, 0, NULL),
+(166, 0, 0, 13, 0, NULL),
+(167, 0, 0, 13, 0, NULL),
+(168, 0, 0, 13, 0, NULL),
+(169, 0, 0, 13, 0, NULL),
+(170, 0, 0, 13, 0, NULL),
+(171, 0, 0, 13, 0, NULL),
+(172, 0, 0, 13, 0, NULL),
+(173, 0, 0, 13, 0, NULL),
+(174, 0, 0, 13, 0, NULL),
+(175, 0, 0, 13, 0, NULL),
+(176, 0, 0, 13, 0, NULL),
+(177, 0, 0, 13, 0, NULL),
+(178, 0, 0, 13, 0, NULL),
+(179, 0, 0, 13, 0, NULL),
+(180, 0, 0, 13, 0, NULL),
+(181, 0, 0, 13, 0, NULL),
+(182, 0, 0, 13, 0, NULL),
+(183, 0, 0, 13, 0, NULL),
+(184, 0, 0, 13, 0, NULL),
+(185, 0, 0, 13, 0, NULL),
+(186, 0, 0, 13, 0, NULL),
+(187, 0, 0, 13, 0, NULL),
+(188, 0, 0, 13, 0, NULL),
+(189, 0, 0, 13, 0, NULL),
+(190, 0, 0, 13, 0, NULL),
+(191, 0, 0, 13, 0, NULL),
+(192, 0, 0, 13, 0, NULL),
+(193, 0, 0, 13, 0, NULL),
+(194, 0, 0, 13, 0, NULL),
+(195, 0, 0, 13, 0, NULL),
+(196, 0, 0, 13, 0, NULL),
+(197, 0, 0, 13, 0, NULL),
+(198, 0, 0, 13, 0, NULL),
+(199, 0, 0, 13, 0, NULL),
+(200, 0, 0, 13, 0, NULL),
+(201, 0, 0, 13, 0, NULL),
+(202, 0, 0, 13, 0, NULL),
+(203, 0, 0, 13, 0, NULL),
+(204, 0, 0, 13, 0, NULL),
+(205, 0, 0, 13, 0, NULL),
+(206, 0, 0, 13, 0, NULL),
+(207, 0, 0, 13, 0, NULL),
+(208, 0, 0, 13, 0, NULL),
+(209, 0, 0, 13, 0, NULL),
+(210, 0, 0, 13, 0, NULL),
+(211, 0, 0, 13, 0, NULL),
+(212, 0, 0, 13, 0, NULL),
+(213, 0, 0, 13, 0, NULL),
+(214, 0, 0, 13, 0, NULL),
+(215, 0, 0, 13, 0, NULL),
+(216, 0, 0, 13, 0, NULL),
+(217, 0, 0, 13, 0, NULL),
+(218, 0, 0, 13, 0, NULL),
+(219, 0, 0, 13, 0, NULL),
+(220, 0, 0, 13, 0, NULL),
+(221, 0, 0, 13, 0, NULL),
+(222, 0, 0, 13, 0, NULL),
+(223, 0, 0, 13, 0, NULL),
+(224, 0, 0, 13, 0, NULL),
+(225, 0, 0, 13, 0, NULL),
+(226, 0, 0, 13, 0, NULL),
+(227, 0, 0, 13, 0, NULL),
+(228, 0, 0, 13, 0, NULL),
+(229, 0, 0, 13, 0, NULL),
+(230, 0, 0, 13, 0, NULL),
+(231, 0, 0, 13, 0, NULL),
+(232, 0, 0, 13, 0, NULL),
+(233, 0, 0, 13, 0, NULL),
+(234, 0, 0, 13, 0, NULL),
+(235, 0, 0, 13, 0, NULL),
+(236, 0, 0, 13, 0, NULL),
+(237, 0, 0, 13, 0, NULL),
+(238, 0, 0, 13, 0, NULL),
+(239, 0, 0, 13, 0, NULL),
+(240, 0, 0, 13, 0, NULL),
+(241, 0, 0, 13, 0, NULL),
+(242, 0, 0, 13, 0, NULL),
+(243, 0, 0, 13, 0, NULL),
+(244, 0, 0, 13, 0, NULL),
+(245, 0, 0, 13, 0, NULL),
+(246, 0, 0, 13, 0, NULL),
+(247, 0, 0, 13, 0, NULL),
+(248, 0, 0, 13, 0, NULL),
+(249, 0, 0, 13, 0, NULL),
+(250, 0, 0, 13, 0, NULL),
+(251, 0, 0, 13, 0, NULL),
+(252, 0, 0, 13, 0, NULL),
+(253, 0, 0, 13, 0, NULL),
+(254, 0, 0, 13, 0, NULL),
+(255, 0, 0, 13, 0, NULL),
+(256, 0, 0, 13, 0, NULL),
+(257, 0, 0, 13, 0, NULL),
+(258, 0, 0, 13, 0, NULL),
+(259, 0, 0, 13, 0, NULL),
+(260, 0, 0, 13, 0, NULL),
+(261, 0, 0, 13, 0, NULL),
+(262, 0, 0, 13, 0, NULL),
+(263, 0, 0, 13, 0, NULL),
+(264, 0, 0, 13, 0, NULL),
+(265, 0, 0, 13, 0, NULL),
+(266, 0, 0, 13, 0, NULL),
+(267, 0, 0, 13, 0, NULL),
+(268, 0, 0, 13, 0, NULL),
+(269, 0, 0, 13, 0, NULL),
+(270, 0, 0, 13, 0, NULL),
+(271, 0, 0, 13, 0, NULL),
+(272, 0, 0, 13, 0, NULL),
+(273, 0, 0, 13, 0, NULL),
+(274, 0, 0, 13, 0, NULL),
+(275, 0, 0, 13, 0, NULL),
+(276, 0, 0, 13, 0, NULL),
+(277, 0, 0, 13, 0, NULL),
+(278, 0, 0, 13, 0, NULL),
+(279, 0, 0, 13, 0, NULL),
+(280, 0, 0, 13, 0, NULL),
+(281, 0, 0, 13, 0, NULL),
+(282, 0, 0, 13, 0, NULL),
+(283, 0, 0, 13, 0, NULL),
+(284, 0, 0, 13, 0, NULL),
+(285, 0, 0, 13, 0, NULL),
+(286, 0, 0, 13, 0, NULL),
+(287, 0, 0, 13, 0, NULL),
+(288, 0, 0, 13, 0, NULL),
+(289, 0, 0, 13, 0, NULL),
+(290, 0, 0, 13, 0, NULL),
+(291, 0, 0, 13, 0, NULL),
+(292, 0, 0, 13, 0, NULL),
+(293, 0, 0, 13, 0, NULL),
+(294, 0, 0, 13, 0, NULL),
+(295, 0, 0, 13, 0, NULL),
+(296, 0, 0, 13, 0, NULL),
+(297, 0, 0, 13, 0, NULL),
+(298, 0, 0, 13, 0, NULL),
+(299, 0, 0, 13, 0, NULL),
+(300, 0, 0, 13, 0, NULL),
+(301, 0, 0, 13, 0, NULL),
+(302, 0, 0, 13, 0, NULL),
+(303, 0, 0, 13, 0, NULL),
+(304, 0, 0, 13, 0, NULL),
+(305, 0, 0, 13, 0, NULL),
+(306, 0, 0, 13, 0, NULL),
+(307, 0, 0, 13, 0, NULL),
+(308, 0, 0, 13, 0, NULL),
+(309, 0, 0, 13, 0, NULL),
+(310, 0, 0, 13, 0, NULL),
+(311, 0, 0, 13, 0, NULL),
+(312, 0, 0, 13, 0, NULL),
+(313, 0, 0, 13, 0, NULL),
+(314, 0, 0, 13, 0, NULL),
+(315, 0, 0, 13, 0, NULL),
+(316, 0, 0, 13, 0, NULL),
+(317, 0, 0, 13, 0, NULL),
+(318, 0, 0, 13, 0, NULL),
+(319, 0, 0, 13, 0, NULL),
+(320, 0, 0, 13, 0, NULL),
+(321, 0, 0, 13, 0, NULL),
+(322, 0, 0, 13, 0, NULL),
+(323, 0, 0, 13, 0, NULL),
+(324, 0, 0, 13, 0, NULL),
+(325, 0, 0, 13, 0, NULL),
+(326, 0, 0, 13, 0, NULL),
+(327, 0, 0, 13, 0, NULL),
+(328, 0, 0, 13, 0, NULL),
+(329, 0, 0, 13, 0, NULL),
+(330, 0, 0, 13, 0, NULL),
+(331, 0, 0, 13, 0, NULL),
+(332, 0, 0, 13, 0, NULL),
+(333, 0, 0, 13, 0, NULL),
+(334, 0, 0, 13, 0, NULL),
+(335, 0, 0, 13, 0, NULL),
+(336, 0, 0, 13, 0, NULL),
+(337, 0, 0, 13, 0, NULL),
+(338, 0, 0, 13, 0, NULL),
+(339, 0, 0, 13, 0, NULL),
+(340, 0, 0, 13, 0, NULL),
+(341, 0, 0, 13, 0, NULL),
+(342, 0, 0, 13, 0, NULL),
+(343, 0, 0, 13, 0, NULL),
+(344, 0, 0, 13, 0, NULL),
+(345, 0, 0, 13, 0, NULL),
+(346, 0, 0, 13, 0, NULL),
+(347, 0, 0, 13, 0, NULL),
+(348, 0, 0, 13, 0, NULL),
+(349, 0, 0, 13, 0, NULL),
+(350, 0, 0, 13, 0, NULL),
+(351, 0, 0, 13, 0, NULL),
+(352, 0, 0, 13, 0, NULL),
+(353, 0, 0, 13, 0, NULL),
+(354, 0, 0, 13, 0, NULL),
+(355, 0, 0, 13, 0, NULL),
+(356, 0, 0, 13, 0, NULL),
+(357, 0, 0, 13, 0, NULL),
+(358, 0, 0, 13, 0, NULL),
+(359, 0, 0, 13, 0, NULL),
+(360, 0, 0, 13, 0, NULL),
+(361, 0, 0, 13, 0, NULL),
+(362, 0, 0, 13, 0, NULL),
+(363, 0, 0, 13, 0, NULL),
+(364, 0, 0, 13, 0, NULL),
+(365, 0, 0, 13, 0, NULL),
+(366, 0, 0, 13, 0, NULL),
+(367, 0, 0, 13, 0, NULL),
+(368, 0, 0, 13, 0, NULL),
+(369, 0, 0, 13, 0, NULL),
+(370, 0, 0, 13, 0, NULL),
+(371, 0, 0, 13, 0, NULL),
+(372, 0, 0, 13, 0, NULL),
+(373, 0, 0, 13, 0, NULL),
+(374, 0, 0, 13, 0, NULL),
+(375, 0, 0, 13, 0, NULL),
+(376, 0, 0, 13, 0, NULL),
+(377, 0, 0, 13, 0, NULL),
+(378, 0, 0, 13, 0, NULL),
+(379, 0, 0, 13, 0, NULL),
+(380, 0, 0, 13, 0, NULL),
+(381, 0, 0, 13, 0, NULL),
+(382, 0, 0, 13, 0, NULL),
+(383, 0, 0, 13, 0, NULL),
+(384, 0, 0, 13, 0, NULL),
+(385, 0, 0, 13, 0, NULL),
+(386, 0, 0, 13, 0, NULL),
+(387, 0, 0, 13, 0, 3),
+(388, 0, 0, 13, 0, 3),
+(389, 0, 0, 13, 0, 3),
+(390, 0, 0, 13, 0, 3),
+(391, 0, 0, 13, 0, 3),
+(392, 0, 0, 13, 0, 3),
+(393, 0, 0, 13, 0, 3),
+(394, 0, 0, 13, 0, 3),
+(395, 0, 0, 13, 0, 3),
+(396, 0, 0, 13, 0, 3),
+(397, 0, 0, 13, 0, 3),
+(398, 0, 0, 13, 0, 3),
+(399, 0, 0, 13, 0, 3),
+(400, 0, 0, 13, 0, 3),
+(401, 0, 0, 13, 0, 3),
+(402, 0, 0, 13, 0, 3),
+(403, 0, 0, 13, 0, 3),
+(404, 0, 0, 13, 0, 3),
+(405, 0, 0, 13, 0, 3),
+(406, 0, 0, 13, 0, 3),
+(407, 0, 0, 13, 0, 3),
+(408, 0, 0, 13, 0, 3),
+(409, 0, 0, 13, 0, 3),
+(410, 0, 0, 13, 0, 3),
+(411, 0, 0, 13, 0, 3),
+(412, 0, 0, 13, 0, 3),
+(413, 0, 0, 13, 0, 3),
+(414, 0, 0, 13, 0, 3),
+(415, 0, 0, 13, 0, 3),
+(416, 0, 0, 13, 0, 3),
+(417, 0, 0, 13, 0, 3),
+(418, 0, 0, 13, 0, 3),
+(419, 0, 0, 13, 0, 3),
+(420, 0, 0, 13, 0, 3),
+(421, 0, 0, 13, 0, 3),
+(422, 0, 0, 13, 0, 3),
+(423, 0, 0, 13, 0, 3),
+(424, 0, 0, 13, 0, 3),
+(425, 0, 0, 13, 0, 3),
+(426, 0, 0, 13, 0, 3),
+(427, 0, 0, 13, 0, 3),
+(428, 0, 0, 13, 0, 3),
+(429, 0, 0, 13, 0, 3),
+(430, 0, 0, 13, 0, 3),
+(431, 0, 0, 13, 0, 3),
+(432, 0, 0, 13, 0, 3),
+(433, 0, 0, 13, 0, 3),
+(434, 0, 0, 13, 0, 3),
+(435, 0, 0, 13, 0, 3),
+(436, 0, 0, 13, 0, 3),
+(437, 0, 0, 13, 0, 3),
+(438, 0, 0, 13, 0, 3),
+(439, 0, 0, 13, 0, 3),
+(440, 0, 0, 13, 0, 3),
+(441, 0, 0, 13, 0, 3),
+(442, 0, 0, 13, 0, 3),
+(443, 0, 0, 13, 0, 3),
+(444, 0, 0, 13, 0, 3),
+(445, 0, 0, 13, 0, 3),
+(446, 0, 0, 13, 0, 3),
+(447, 0, 0, 13, 0, 3),
+(448, 0, 0, 13, 0, 3),
+(449, 0, 0, 13, 0, 3),
+(450, 0, 0, 13, 0, 3),
+(451, 0, 0, 13, 0, 3),
+(452, 0, 0, 13, 0, 3),
+(453, 0, 0, 13, 0, 3),
+(454, 0, 0, 13, 0, 3),
+(455, 0, 0, 13, 0, 3),
+(456, 0, 0, 13, 0, 3),
+(457, 0, 0, 13, 0, 3),
+(458, 0, 0, 13, 0, 3),
+(459, 0, 0, 13, 0, 3),
+(460, 0, 0, 13, 0, 3),
+(461, 0, 0, 13, 0, 3),
+(462, 0, 0, 13, 0, 3),
+(463, 0, 0, 13, 0, 3),
+(464, 0, 0, 13, 0, 3),
+(465, 0, 0, 13, 0, 3),
+(466, 0, 0, 13, 0, 3),
+(467, 0, 0, 13, 0, 3),
+(468, 0, 0, 13, 0, 3),
+(469, 0, 0, 13, 0, 3),
+(470, 0, 0, 13, 0, 3),
+(471, 0, 0, 13, 0, 3),
+(472, 20, 0, 13, 123456, 3),
+(473, 20, 0, 13, 19836538, 3),
+(474, 20, 0, 13, 22542252, 3),
+(475, 19, 0, 13, 654765347, 3),
+(476, 19, 0, 13, 654765347, 3),
+(477, 20, 0, 13, 123456, 3),
+(478, 20, 0, 13, 19836538, 3),
+(479, 20, 0, 13, 22542252, 3),
+(480, 19, 0, 13, 654765347, 3),
+(481, 19, 0, 13, 654765347, 3),
+(482, 20, 0, 13, 123456, 3),
+(483, 20, 0, 13, 19836538, 3),
+(484, 20, 0, 13, 22542252, 3),
+(485, 19, 0, 13, 654765347, 3),
+(486, 19, 0, 13, 654765347, 3),
+(487, 0, 0, 13, 0, 3),
+(488, 0, 0, 13, 0, 3),
+(489, 0, 0, 13, 0, 3),
+(490, 0, 0, 13, 0, 3),
+(491, 0, 0, 13, 0, 3),
+(492, 0, 0, 13, 0, 3),
+(493, 0, 0, 13, 0, 3),
+(494, 0, 0, 13, 0, 3),
+(495, 0, 0, 13, 0, 3),
+(496, 0, 0, 13, 0, 3),
+(497, 0, 0, 13, 0, 3),
+(498, 0, 0, 13, 0, 3),
+(499, 0, 0, 13, 0, 3),
+(500, 0, 0, 13, 0, 3),
+(501, 0, 0, 13, 0, 3),
+(502, 0, 0, 13, 0, 3),
+(503, 0, 0, 13, 0, 3),
+(504, 0, 0, 13, 0, 3),
+(505, 0, 0, 13, 0, 3),
+(506, 0, 0, 13, 0, 3),
+(507, 0, 0, 13, 0, 3),
+(508, 0, 0, 13, 0, 3),
+(509, 0, 0, 13, 0, 3),
+(510, 0, 0, 13, 0, 3),
+(511, 0, 0, 13, 0, 3),
+(512, 0, 0, 13, 0, 3),
+(513, 0, 0, 13, 0, 3),
+(514, 0, 0, 13, 0, 3),
+(515, 0, 0, 13, 0, 3),
+(516, 0, 0, 13, 0, 3),
+(517, 0, 0, 13, 0, 3),
+(518, 0, 0, 13, 0, 3),
+(519, 0, 0, 13, 0, 3),
+(520, 0, 0, 13, 0, 3),
+(521, 0, 0, 13, 0, 3),
+(522, 0, 0, 13, 0, 3),
+(523, 0, 0, 13, 0, 3),
+(524, 0, 0, 13, 0, 3),
+(525, 0, 0, 13, 0, 3),
+(526, 0, 0, 13, 0, 3),
+(527, 0, 0, 13, 0, 3),
+(528, 0, 0, 13, 0, 3),
+(529, 0, 0, 13, 0, 3),
+(530, 0, 0, 13, 0, 3),
+(531, 0, 0, 13, 0, 3),
+(532, 0, 0, 5, 0, NULL),
+(533, 0, 0, 5, 0, NULL),
+(534, 0, 0, 5, 0, NULL),
+(535, 0, 0, 5, 0, NULL),
+(536, 0, 0, 5, 0, NULL),
+(537, 0, 0, 5, 0, NULL),
+(538, 0, 0, 5, 0, NULL),
+(539, 0, 0, 5, 0, NULL),
+(540, 0, 0, 5, 0, NULL),
+(541, 0, 0, 5, 0, NULL),
+(542, 0, 0, 5, 0, NULL),
+(543, 0, 0, 5, 0, NULL),
+(544, 0, 0, 5, 0, NULL),
+(545, 0, 0, 5, 0, NULL),
+(546, 0, 0, 5, 0, NULL),
+(547, 0, 0, 5, 0, NULL),
+(548, 0, 0, 5, 0, NULL),
+(549, 0, 0, 5, 0, NULL),
+(550, 0, 0, 5, 0, NULL),
+(551, 0, 0, 5, 0, NULL),
+(552, 19, 0, 5, 123456, NULL),
+(553, 18, 0, 5, 19836538, NULL),
+(554, 18, 0, 5, 22542252, NULL),
+(555, 17, 0, 5, 654765347, NULL),
+(556, 17, 0, 5, 654765347, NULL);
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id_admin`);
+
+--
+-- Index pour la table `chef_filiere`
+--
+ALTER TABLE `chef_filiere`
+  ADD PRIMARY KEY (`id_chef`),
+  ADD KEY `chef` (`id_filiere`);
+
+--
+-- Index pour la table `chef_module`
+--
+ALTER TABLE `chef_module`
+  ADD PRIMARY KEY (`id_chef_module`),
+  ADD KEY `id_ens` (`id_ens`);
+
+--
+-- Index pour la table `compte`
+--
+ALTER TABLE `compte`
+  ADD PRIMARY KEY (`id_compte`),
+  ADD UNIQUE KEY `id_ens` (`id_ens`),
+  ADD UNIQUE KEY `id_chef` (`id_chef`);
+
+--
+-- Index pour la table `enseignant`
+--
+ALTER TABLE `enseignant`
+  ADD PRIMARY KEY (`id_ens`);
+
+--
+-- Index pour la table `etudiant`
+--
+ALTER TABLE `etudiant`
+  ADD PRIMARY KEY (`Apogée`),
+  ADD KEY `etudiant_ibfk_1` (`id_filiere`);
+
+--
+-- Index pour la table `filiere`
+--
+ALTER TABLE `filiere`
+  ADD PRIMARY KEY (`id_filiere`);
+
+--
+-- Index pour la table `matiere`
+--
+ALTER TABLE `matiere`
+  ADD PRIMARY KEY (`id_matiere`),
+  ADD KEY `id_module` (`id_module`),
+  ADD KEY `id_ens` (`id_ens`);
+
+--
+-- Index pour la table `module`
+--
+ALTER TABLE `module`
+  ADD PRIMARY KEY (`id_module`),
+  ADD KEY `id_chef_module` (`id_chef_module`);
+
+--
+-- Index pour la table `note`
+--
+ALTER TABLE `note`
+  ADD PRIMARY KEY (`id_note`),
+  ADD KEY `Apogée` (`Apogée`),
+  ADD KEY `id_module` (`id_module`),
+  ADD KEY `id_matiere` (`id_matiere`);
+
+--
+-- Index pour la table `note_en_attent`
+--
+ALTER TABLE `note_en_attent`
+  ADD PRIMARY KEY (`id_note`),
+  ADD KEY `Apogée` (`Apogée`),
+  ADD KEY `id_module` (`id_module`),
+  ADD KEY `id_matiere` (`id_matiere`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id_admin` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `compte`
+--
+ALTER TABLE `compte`
+  MODIFY `id_compte` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT pour la table `module`
+--
+ALTER TABLE `module`
+  MODIFY `id_module` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT pour la table `note`
+--
+ALTER TABLE `note`
+  MODIFY `id_note` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT pour la table `note_en_attent`
+--
+ALTER TABLE `note_en_attent`
+  MODIFY `id_note` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=557;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `chef_filiere`
+--
+ALTER TABLE `chef_filiere`
+  ADD CONSTRAINT `chef` FOREIGN KEY (`id_filiere`) REFERENCES `filiere` (`id_filiere`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `chef_module`
+--
+ALTER TABLE `chef_module`
+  ADD CONSTRAINT `chef_module_ibfk_1` FOREIGN KEY (`id_ens`) REFERENCES `enseignant` (`id_ens`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `compte`
+--
+ALTER TABLE `compte`
+  ADD CONSTRAINT `compte_ibfk_1` FOREIGN KEY (`id_ens`) REFERENCES `enseignant` (`id_ens`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `compte_ibfk_2` FOREIGN KEY (`id_chef`) REFERENCES `chef_filiere` (`id_chef`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `etudiant`
+--
+ALTER TABLE `etudiant`
+  ADD CONSTRAINT `etudiant_ibfk_1` FOREIGN KEY (`id_filiere`) REFERENCES `filiere` (`id_filiere`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `matiere`
+--
+ALTER TABLE `matiere`
+  ADD CONSTRAINT `matiere_ibfk_1` FOREIGN KEY (`id_module`) REFERENCES `module` (`id_module`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `matiere_ibfk_2` FOREIGN KEY (`id_ens`) REFERENCES `enseignant` (`id_ens`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `module`
+--
+ALTER TABLE `module`
+  ADD CONSTRAINT `module_ibfk_1` FOREIGN KEY (`id_chef_module`) REFERENCES `chef_module` (`id_chef_module`);
+
+--
+-- Contraintes pour la table `note`
+--
+ALTER TABLE `note`
+  ADD CONSTRAINT `note_ibfk_1` FOREIGN KEY (`Apogée`) REFERENCES `etudiant` (`Apogée`) ON DELETE CASCADE,
+  ADD CONSTRAINT `note_ibfk_2` FOREIGN KEY (`id_module`) REFERENCES `module` (`id_module`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `note_ibfk_3` FOREIGN KEY (`id_matiere`) REFERENCES `matiere` (`id_matiere`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

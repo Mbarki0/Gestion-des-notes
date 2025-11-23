@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,900&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    text-decoration: none;
+}
+header
+{
+    height: 90px;
+    width: 100%;
+    background-color: #264653;
+}
+header + p
+{   margin-top: 30px;
+    margin-left: 0%;
+    text-align: left;
+    padding-left: 5px;
+    border-left:solid 10px #264653;
+}
+header input , header button
+{
+    background-color: #365e6e;
+    font-size: 15px;
+    float :left ;
+    padding: 10px;
+    margin: 15px 0 0 5px;
+    text-align: center;
+    border: none;
+    border-radius: 100px;
+    color: white;
+}
+header input:hover 
+ {
+     background-color:aliceblue ;
+     color: #264653;
+ }
+ #prof
+{
+    left:35%;
+    position: absolute;
+}
+ #chef
+{
+     position: absolute;
+     left:55%;
+}
+ #deconnection
+{
+    position: absolute;
+    RIGHT: 10PX;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+
+}
+#deconnection:hover
+{
+    background-color: rgba(165, 42, 42, 0.788);
+    color: aliceblue;
+}
+table
+{
+  background: #f5f5f5;
+	border-collapse: separate;
+	box-shadow: inset 0 1px 0 #fff;
+	font-size: 12px;
+	line-height: 24px;
+	margin: 30px auto;
+	text-align: left;
+	width: 70%;
+  border-radius: 10px 10px 0 0 ;
+  overflow: hidden;
+  margin-right: 0%;
+}	
+
+th {
+	background-color: #365e6e;
+	border-left: 1px solid #555;
+	border-right: 1px solid #777;
+	border-top: 1px solid #555;
+	border-bottom: 1px solid #333;
+	box-shadow: inset 0 1px 0 #999;
+	color: #fff;
+  font-weight: bold;
+	padding: 10px 15px;
+	position: relative;
+	text-shadow: 0 1px 0 #000;	
+  PADDING:15PX;
+  text-align: center;
+  
+}
+td {
+	border: 1px solid #fff;
+	padding: 10px 15px;
+	position: relative;
+}
+p:nth-child(2){
+    margin: 20px 10px;
+    border-left: 5px solid #264653;
+}
+#erreur
+{   
+    margin: 2% 20%;
+    color: red;
+    font-size: 30px;
+}
+.btn btn-primary
+{
+  position: absolute;
+  bottom: 0%;
+}
+#info
+{
+  margin-top: 100PX;
+  width: 25%;
+  height: auto;
+  MARGIN-left: 0%;
+  position: absolute;
+}
+#info th
+{
+  background-color:#365e6e;
+}
+.submit
+{
+  position: absolute;
+  bottom: 0%;
+  margin: 0 20PX;
+  border-radius: 10PX;
+  padding:10px;
+  background-color: #107d59;
+  color: white;
+  border: none;
+  
+}
+.submit:hover
+{
+  background-color: #094a35; 
+}
+header img
+{
+    height: 80PX;
+    align-items: center;
+    left: 0%;
+    LEFT: 10PX;
+    position: absolute;
+}

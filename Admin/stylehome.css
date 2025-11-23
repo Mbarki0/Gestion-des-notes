@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,900&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+.a
+{
+    height: 100px;
+    width: 300px;
+    padding: 5%;
+    margin: 50px 50PX 20PX 10PX ;
+    left :20%;
+    position: absolute;
+    background-color: rgb(206, 204, 186);
+    border-radius: 20px;
+    text-align: center;
+    font-size: 15px;
+    color: black;
+}
+.b
+{   
+    height: 100px;
+    width: 300px;
+    padding: 5%;
+    margin:250PX 50PX 20PX 10PX ;
+    left :20%;
+    position: absolute;
+    background-color: rgb(206, 204, 186);
+    border-radius: 20px;
+    text-align: center;
+    font-size: 15px;
+    color: black;
+}
+.c
+{
+    height: 100px;
+    width: 300px;
+    padding: 5%;
+    margin:50px 50PX 20PX 10PX ;
+    right :20%;
+    position: absolute;background-color: rgb(206, 204, 186);
+    border-radius: 20px;
+    text-align: center;
+    font-size: 15px;
+    color: black;
+}
+.d
+{
+    height: 100px;
+    width: 300px;
+    padding: 5%;
+    margin:250PX 50PX 20PX 10PX ;
+    right :20%;
+    position: absolute;background-color: rgb(206, 204, 186);
+    border-radius: 20px;
+    text-align: center;
+    font-size: 15px;
+    color: black;
+}
+.head
+{
+    position:static;
+    display: block;
+}
+.bottom
+{
+    position:static;
+    display: block;
+}

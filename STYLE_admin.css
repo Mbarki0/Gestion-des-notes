@@ -1,0 +1,64 @@
+
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,900&display=swap');
+      *{
+          font-family: 'Poppins', sans-serif;
+          margin: 0%;
+          padding: 0%;
+          box-sizing: border-box;
+          scroll-behavior: smooth;
+      }
+     
+        #page{
+            margin-left : 35%;
+            margin-top: 4%;
+            display: block;
+            border-radius: 8%;
+            padding: 3%;
+            height: 70%;
+            position: fixed;
+            background-color: aliceblue;
+            
+        }
+        #aaa
+        {
+            background-image: linear-gradient(#989cbb ,#E0E4EC,#917062);
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            z-index: -1;
+        }
+        input[type=text] , input[type=password] {
+            
+            width: 9CM;
+            height: 45PX;
+            border-width: 0px;
+            margin-left: 10px;
+            padding-left: 20px;
+            border-color:rgb(202, 202, 202) ;
+        }
+        input[type=submit]{
+            border-radius: 7px;
+            border-width: 0cm;
+            color : white;
+            background-color:#917062;
+            width: 9CM;
+            height:40px ;
+            margin-top: 1cm;
+            margin-left: 10px;
+        }
+        
+        #logo
+        {
+            height : 90PX;
+            width: auto;
+            margin-top: 10px;
+            margin-bottom: 40px;
+            margin-right: auto;
+            margin-left: auto;
+            display: block;
+        }
+            .pass:hover
+            {
+                background-color:#816558;   
+            }
+            

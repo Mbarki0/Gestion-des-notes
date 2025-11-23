@@ -19,7 +19,7 @@
 
   <h2 style="color: #34495e;">🖥️ Fonctionnalités principales</h2>
   <p align="center">
-    <img src="assets/features.png" alt="Fonctionnalités principales" width="5%">
+    <img src="assets/features.png" alt="Fonctionnalités principales" width="10%">
   </p>
 
   <ul>
@@ -55,7 +55,7 @@
   <h2 style="color: #34495e;">👨‍💻 Auteur</h2>
 
   <p align="center">
-    Projet réalisé par <strong>Mohammed M’Barki</strong><br>
+    Projet réalisé par <strong>Mohammed M’BARKI</strong><br>
     N'hésitez pas à proposer des améliorations ou ouvrir une issue !
   </p>
 

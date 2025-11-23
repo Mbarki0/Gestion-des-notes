@@ -9,8 +9,6 @@
 
   <hr style="border: 1px solid #ddd; margin: 30px 0;">
 
-
-  <!-- ====================================================== -->
   <h2 style="color: #34495e;">🎯 Objectifs du projet</h2>
   <ul>
     <li>Centraliser et organiser les notes des étudiants.</li>
@@ -19,13 +17,9 @@
     <li>Assurer une interface simple, fonctionnelle et efficace.</li>
   </ul>
 
-
-  <!-- ====================================================== -->
   <h2 style="color: #34495e;">🖥️ Fonctionnalités principales</h2>
-
-  <!-- Remplace features.png par une image illustrant les fonctionnalités -->
   <p align="center">
-    <img src="assets/features.png" alt="Fonctionnalités principales" width="70%">
+    <img src="assets/features.png" alt="Fonctionnalités principales" width="5%">
   </p>
 
   <ul>
@@ -37,10 +31,8 @@
   </ul>
 
 
-  <!-- ====================================================== -->
   <h2 style="color: #34495e;">🛠️ Technologies utilisées</h2>
 
-  <!-- Remplace techs.png par une image qui représente les technologies -->
   <p align="center">
     <img src="assets/image.png" alt="Technologies utilisées" width="60%">
   </p>
@@ -53,16 +45,13 @@
     <tr><td style="padding: 8px; border: 1px solid #ddd;">UML</td><td style="padding: 8px; border: 1px solid #ddd;">Modélisation du système</td></tr>
     <tr><td style="padding: 8px; border: 1px solid #ddd;">Diagramme de Gantt</td><td style="padding: 8px; border: 1px solid #ddd;">Planification du projet</td></tr>
   </table>
-  <!-- ====================================================== -->
   <h2 style="color: #34495e;">🎞️ Démonstration</h2>
 
-  <!-- Remplace demo.gif par un GIF montrant une fonctionnalité -->
   <p align="center">
     <img src="assets/interface.png" alt="interface d'accueil" width="70%">
   </p>
 
 
-  <!-- ====================================================== -->
   <h2 style="color: #34495e;">👨‍💻 Auteur</h2>
 
   <p align="center">
